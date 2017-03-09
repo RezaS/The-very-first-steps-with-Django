@@ -1,1 +1,22 @@
-# testing
+1. cd <path to project>
+2. Create a project: django-admin startproject <mysite>
+3. Create an app: python manage.py startapp <myapp>
+4. Writing a view in <myapp>/views.py:
+from django.http import HttpResponse
+def index(request):
+    return HttpResponse("Hello, world. You're at the polls index.")
+
+5. Create a new file <myapp>/urls.py
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse("Hello, world. You're at the polls index.")
+
+6. Change the file <mysite>/urls.py
+from django.conf.urls import include, url
+from django.contrib import admin
+
+urlpatterns = [
+    url(r'^', include('<myapp>.urls')),
+    url(r'^admin/', admin.site.urls),
+]
